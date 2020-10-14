@@ -170,8 +170,6 @@ class Llvm < Formula
       -DLLVM_TARGETS_TO_BUILD=all
       -DFFI_INCLUDE_DIR=#{Formula["libffi"].opt_lib}/libffi-#{Formula["libffi"].version}/include
       -DFFI_LIBRARY_DIR=#{Formula["libffi"].opt_lib}
-      -DPYTHON_INCLUDE_DIR=#{Formula["python@#{py_ver}"].opt_include}
-      -DPYTHON_LIBRARIES=#{Formula["python@#{py_ver}"].opt_lib}
       -DLLVM_CREATE_XCODE_TOOLCHAIN=#{MacOS::Xcode.installed? ? "ON" : "OFF"}
       -DLLDB_USE_SYSTEM_DEBUGSERVER=ON
       -DLLDB_ENABLE_PYTHON=ON
