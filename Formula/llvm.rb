@@ -101,6 +101,7 @@ class Llvm < Formula
   # See: Homebrew/homebrew-core/issues/35513
   depends_on "cmake" => :build
   depends_on "python@3.9" => :build
+  depends_on "swig" => :build
   depends_on "libffi"
 
   uses_from_macos "libedit"
@@ -169,6 +170,8 @@ class Llvm < Formula
       -DLLVM_TARGETS_TO_BUILD=all
       -DFFI_INCLUDE_DIR=#{Formula["libffi"].opt_lib}/libffi-#{Formula["libffi"].version}/include
       -DFFI_LIBRARY_DIR=#{Formula["libffi"].opt_lib}
+      -DPYTHON_INCLUDE_DIR=#{Formula["python#{py_ver}"].opt_include}
+      -DPYTHON_LIBRARIES=#{Formula["python#{py_ver}"].opt_lib}
       -DLLVM_CREATE_XCODE_TOOLCHAIN=#{MacOS::Xcode.installed? ? "ON" : "OFF"}
       -DLLDB_USE_SYSTEM_DEBUGSERVER=ON
       -DLLDB_ENABLE_PYTHON=ON
